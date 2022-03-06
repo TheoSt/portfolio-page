@@ -1,0 +1,534 @@
+* {
+    box-sizing:border-box;
+    margin:0;
+    padding:0;
+    font-family: 'Oxygen Mono', monospace;
+}
+
+body {
+    background-color:black;
+    color:white;
+}
+
+h1,h2,h3, h4, .contact-item a {
+    font-family: 'Fira Code', monospace;
+    text-transform:uppercase;
+    font-weight:400;
+    
+}
+
+.rotate-text {
+    position:absolute;
+    top:80px;
+    left:-30px;
+    transform:rotate(-90deg);
+    font-size:0.6rem;
+}
+
+#intro {
+    width:100%;
+    height:100vh;
+    position:relative;
+    display:flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+#intro-video {
+    width:100%;
+    height:100%;
+    object-fit:cover;
+    position:absolute;
+    top:0;
+    left:0;
+    z-index:-1;
+}
+
+.intro-info {
+    text-align:center;
+    font-size:1.2rem;
+    text-transform:uppercase;
+    line-height:2.2rem;
+    letter-spacing: 1px; 
+}
+
+.intro-info span {
+    display:inline-block;
+    opacity:0;
+    margin-top:0.8em;
+    transition:margin-top 1s ease-in, opacity 1s ease-in;
+}
+
+.intro-info .intro-transition {
+    margin-top:0;
+    opacity:1;
+}
+
+#projects {
+    width:100%;
+    margin:5em 0;
+}
+
+#projects h3 {
+    width:80%;
+    margin:0 auto;
+    font-size:1rem;
+    text-align:center;
+}
+
+#projects h3:nth-of-type(2) {
+    font-size:0.8rem;
+}
+
+.project {
+    width:100%;
+    position:relative;
+}
+
+.message {
+    position:absolute;
+    left:50%;
+    top:50%;
+    transform:translate(-50%,-50%);
+    z-index:1;
+    text-align:center;
+    padding:0.8rem;
+    border-radius:10px;
+    background-color:rgba(8, 8, 8, 0.9); 
+}
+
+.message.hide-message {
+    animation:fade-left 1s ease-in;
+    animation-fill-mode: forwards;
+}
+
+@keyframes fade-left {
+    0%{
+        transform:translate(-50%,-50%);
+        opacity:1;
+    }
+    100% {
+        transform:translate(-100%,-50%);
+        opacity:0;
+    }
+}
+
+.card {
+    width:100%;
+    height:100vh;
+    perspective: 1000px;
+}
+
+.card-content {
+    position:relative;
+    height:100%;
+    transition:transform 1.5s;
+    transform-style:preserve-3d;
+    background-size:80%;
+    background-position:center;
+    background-repeat:no-repeat;
+}
+
+#first-project .card-content {
+    background-image:url("images/pomodoro_mobile.jpg"); 
+}
+
+#second-project .card-content {
+    background-image:url("images/ip_tracker_mobile.jpg");
+}
+
+#third-project .card-content {
+    background-image:url("images/bookmark_mobile.jpg");
+}
+
+#fourth-project .card-content {
+    background-image:url("images/ecommerce_mobile.jpg");
+}
+
+#fifth-project .card-content {
+    background-image:url("images/url_short_mobile.jpg");
+}
+
+.active-rotate .card-content {
+    transform:rotateY(.5turn);
+}
+
+.card-front,
+.card-back {
+    position:absolute;
+    top:0;
+    bottom:0;
+    left:0;
+    right:0;
+    backface-visibility:hidden;
+    transform-style:preserve-3d;
+}
+
+.card-back {
+    text-align:center;
+    background-color:black;
+    transform:rotateY(.5turn);
+    display:flex;
+    align-items:center;
+    justify-content:space-evenly;
+
+}
+
+.project-name {
+    font-size:2rem;
+    text-transform:uppercase;
+    width:50%;
+    text-align:center;
+}
+
+.project-info {
+    width:30%;
+}
+
+.project-info p {
+    font-size:0.7rem;
+    text-transform:uppercase;
+    transform:translateZ(6rem);
+    margin-top:1.5em;
+}
+
+.project-info p:first-of-type {
+    margin-top:0;
+}
+
+.project-info ul {
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    padding:1rem 0;
+}
+
+.project-info li {
+    list-style-type:none;
+}
+
+.project-info li img {
+    width:32px;
+    height:32px;
+}
+
+.project-info li:nth-of-type(2) img {
+    margin-left:1em;
+}
+
+#aboutme {
+    width:100%;
+    margin-top:3em;
+}
+
+#aboutme h2 {
+    text-align:center;
+    font-size:2rem;
+}
+
+#aboutme .image-section {
+    margin:2em 0;
+}
+
+#aboutme .image-section img {
+    display:block;
+    margin:0 auto;
+    width:50%;
+    border-radius:50%;
+}
+
+.about-info {
+    width:90%;
+    margin:1em auto 3em;
+    font-size:0.8rem;
+    text-align:left;
+}
+
+.about-info p {
+    margin-top:0.5em;
+    line-height:1.8;
+}
+
+.tech-info {
+    overflow:hidden;
+}
+
+.tech-info h3 {
+    font-size:1.2rem;
+    text-align:center;
+    padding:2rem 0;
+}
+
+.box {
+    position:relative;
+    height:200px;
+    width:100px;
+    margin:0 auto;
+    transform-style:preserve-3d;
+    animation: animate 20s linear infinite;
+}
+
+@keyframes animate {
+    0% {
+        transform:perspective(1500px) rotateY(0deg);
+    }
+    100% {
+        transform:perspective(1500px) rotateY(360deg);
+    }
+}
+
+.box div {
+    position:absolute;
+    top:0;
+    left:0;
+    width:100%;
+    height:100%;
+    transform-style:preserve-3d;
+    transform-origin:center;
+}
+
+.box div:first-of-type {
+    transform:rotateY(45deg) translateZ(250px); 
+}
+
+.box div:nth-of-type(2) {
+    transform:rotateY(90deg) translateZ(250px); 
+}
+
+.box div:nth-of-type(3) {
+    transform:rotateY(135deg) translateZ(250px); 
+}
+
+.box div:nth-of-type(4) {
+    transform:rotateY(180deg) translateZ(250px); 
+}
+
+.box div:nth-of-type(5) {
+    transform:rotateY(225deg) translateZ(250px); 
+}
+
+.box div img {
+    position:absolute;
+    height:100%;
+    width:100%;
+    object-fit:contain;
+}
+
+.other-tech li {
+    text-align:center;
+    font-size:1rem;
+    padding:1rem 0;
+}
+
+
+#contact {
+    width:100%;
+    height:100vh;
+    display:flex;
+    flex-direction: column;
+    align-items:center;
+    position:relative; 
+    margin-top:5em;
+}
+
+#contact h4 {
+    text-align:center;
+    font-size:0.8rem;
+    width:80%;
+    margin:0 auto;
+    padding:3rem 0;
+}
+
+.contact-container {
+    width:100%;
+    margin:2em 0 0;
+}
+
+.contact-item {
+    list-style-type:none;
+    text-align:center;
+    padding:3rem 0;
+}
+
+.contact-item a {
+    font-size:1.2rem;
+    text-transform:uppercase;
+    text-decoration:none;
+    color:white;
+    letter-spacing:2px;
+    transition:letter-spacing 0.5s ease-in;
+}
+
+.contact-item a:visited {
+    color:white;
+    text-decoration:none;
+}
+
+.contact-item a:hover {
+    letter-spacing:5px;
+}
+
+@media screen and (min-width:768px) {
+    .rotate-text {
+        font-size:0.7rem;
+    }
+
+    .intro-info {
+        height:40vh;
+        font-size:2rem;
+        line-height:3rem;
+    }
+
+    .intro-info span {
+        margin-top:0.8em;
+    }
+
+    #projects h3 {
+        font-size:1.2rem;
+    }
+
+    #projects h3:nth-of-type(2) {
+        font-size:0.9rem;
+    }
+
+    .card {
+        width:90%;
+        margin:0 auto;
+    }
+
+    .card-content {
+        background-size:100%;
+    }
+
+    #first-project .card-content {
+        background-image:url("images/pomodoro_desktop.png"); 
+    }
+    
+    #second-project .card-content {
+        background-image:url("images/ip_tracker_desktop.png");
+    }
+    
+    #third-project .card-content {
+        background-image:url("images/bookmark_desktop.png");
+    }
+    
+    #fourth-project .card-content {
+        background-image:url("images/ecommerce_desktop.png");
+    }
+    
+    #fifth-project .card-content {
+        background-image:url("images/url_short_desktop.png");
+    }
+
+    #aboutme .image-section img {
+        width:30%;
+    }
+
+    .about-info {
+        width:70%;
+    }
+
+    .other-tech {
+        margin-top:2em;
+    }
+}
+
+@media only screen and (min-width:1024px) {
+    .card-content {
+        background-size:90%;
+    }
+
+    .card-back {
+        justify-content:center;
+    }
+
+    .project-name {
+        width:40%;
+    }
+
+    .project-info {
+        width:40%;
+    }
+
+    #aboutme {
+        margin-top:8em;
+    }
+
+    #aboutme .image-section img {
+        width:20%;
+    }
+
+    .about-info {
+        width:60%;
+    }
+
+    #contact {
+        justify-content:center;
+    }
+
+    .contact-container {
+        margin:0;
+    }
+}
+
+@media only screen and (min-width:1440px) {
+    .rotate-text {
+        font-size:0.8rem;
+    }
+
+    .card-content {
+        background-size:80%;
+    }
+
+    .card-back {
+        justify-content:center;
+    }
+
+    .project-name {
+        width:30%;
+    }
+
+    .project-info {
+        width:30%;
+    }
+
+    .project-info p {
+        font-size:0.8rem;
+    }
+
+    #projects h3 {
+        margin:0 auto;
+    }
+
+    #aboutme .image-section {
+        margin:4em 0;
+    }
+
+    #aboutme .image-section img {
+        width:15%;
+    }
+
+    .tech-info h3 {
+        padding:4rem 0;
+    }
+
+    .about-info {
+        width:45%;
+        font-size:0.9rem;
+
+    }
+
+    #contact h4 {
+        font-size:1.1rem;
+    }
+
+    .contact-item a {
+        font-size:2rem;
+    }
+}
+
+@media only screen and (min-width:1920px) {
+    .intro-info {
+        font-size:2.5rem;
+    }
+}
