@@ -346,6 +346,10 @@ li {
     transform:rotateY(270deg) translateZ(250px); 
 }
 
+.box div:nth-of-type(7) {
+    transform:rotateY(315deg) translateZ(250px); 
+}
+
 .box div img {
     height:100%;
     width:100%;
