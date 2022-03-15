@@ -124,6 +124,7 @@ li {
     background-size:contain;
     background-position:center;
     background-repeat:no-repeat;
+
 }
 
 .active-rotate .card-content {
@@ -158,6 +159,7 @@ li {
     left:0;
     right:0;
     backface-visibility:hidden;
+    -webkit-backface-visibility:hidden;
     transform-style:preserve-3d;
 }
 
